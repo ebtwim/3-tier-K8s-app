@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-deploy
+  namespace: assignment
   labels:
     app: backend-app
-  namespace: trainer-portal
 spec:
   replicas: 2
   selector:
@@ -12,12 +12,20 @@ spec:
       app: backend-app
   template:
     metadata:
-      name: backend-app
       labels:
         app: backend-app
     spec:
       containers:
         - name: backend-app
-          image: saurabhd2106/backend-trainer-portal-as:latest
+          image: ebtwim/backend-app:latest
           ports:
             - containerPort: 3000
+          env:
+            - name: DB_USER
+              value: Ebtsam
+            - name: DB_PASSWORD
+              value: Abtash1999
+            - name: DB_SERVER
+              value: devops1-week10-ebtsam-dh-sql.database.windows.net
+            - name: DB_NAME
+              value: EbtsamDB

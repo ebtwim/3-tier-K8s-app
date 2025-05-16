@@ -2,9 +2,9 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: frontend-configmap
-  namespace: trainer-portal
+  namespace: assignment
 data:
   config.json: |
     {
-      "API_URL": "http://135.235.188.125/backend/"
+      "API_URL": "http://74.162.96.124/backend/"
     }
